@@ -36,8 +36,25 @@ const PostsList = ({componentId}) => {
     }
   };
 
+  const pushViewPostScreen = () => {
+    Navigation.push(componentId, {
+      component: {
+        name: 'blog.ViewPost',
+        passProps: {
+          somePropToPass: 'This is a Modal for IOS very native.',
+        },
+        options: {
+          topBar: {
+            title: {
+              text: 'Detail Screen',
+            },
+          },
+        },
+      },
+    });
+  };
+
   const rowRenderer = (type, data) => {
-    console.log('test data', data);
     return (
       <TouchableOpacity onPress={pushViewPostScreen}>
         <ImageRenderer imageUrl={data} />
@@ -58,24 +75,6 @@ const PostsList = ({componentId}) => {
   };
 
   Navigation.events();
-
-  const pushViewPostScreen = () => {
-    Navigation.push(componentId, {
-      component: {
-        name: 'blog.ViewPost',
-        passProps: {
-          somePropToPass: 'Some props that we are passing',
-        },
-        options: {
-          topBar: {
-            title: {
-              text: 'Post1',
-            },
-          },
-        },
-      },
-    });
-  };
 
   return (
     <View style={styles.container}>

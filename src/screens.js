@@ -6,10 +6,6 @@ export const registerScreens = () => {
     () => require('./screens/PostList').default,
   );
   Navigation.registerComponent(
-    'blog.AddPost',
-    () => require('./screens/AddPost').default,
-  );
-  Navigation.registerComponent(
     'blog.ViewPost',
     () => require('./screens/ViewPost').default,
   );

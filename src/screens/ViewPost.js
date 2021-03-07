@@ -1,17 +1,16 @@
 import React, {useState} from 'react';
 import {View, Modal, StyleSheet, TouchableOpacity, Text} from 'react-native';
 
-const ViewPost = () => {
+const ViewPost = ({somePropToPass}) => {
   const [modalVisible, setModalVisible] = useState(false);
-
   return (
     <View>
       <TouchableOpacity
         onPress={() => {
           setModalVisible(true);
         }}
-        style={{backgroundColor: 'red', marginVertical: 150}}>
-        <Text style={{textAlign: 'center'}}>Show Modal</Text>
+        style={styles.button}>
+        <Text style={styles.text}>Open Modal</Text>
       </TouchableOpacity>
       <Modal
         presentationStyle="pageSheet"
@@ -21,7 +20,7 @@ const ViewPost = () => {
           style={styles.modalContainer}
           onPressIn={() => setModalVisible(true)}
           onPressOut={() => setModalVisible(false)}>
-          <Text style={{}}>Modal Content...</Text>
+          <Text style={{color:'#008000',fontWeight:'bold'}}>{somePropToPass}</Text>
         </TouchableOpacity>
       </Modal>
     </View>
@@ -39,5 +38,18 @@ const styles = StyleSheet.create({
   modal: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  button: {
+    backgroundColor: '#2f4f4f',
+    marginVertical: 170,
+    width: '30%',
+    height: '30%',
+    borderRadius: 5,
+    alignSelf:'center'
+  },
+  text: {
+    color: 'white',
+    alignSelf: 'center',
+    marginVertical: 60,
   },
 });
